@@ -1,8 +1,13 @@
-
 {
   "translation": {
     "welcome": "Welcome to the Hospital Panel",
     "description": "Management of appointments and medical records",
-    "toggle_theme": "Toggle Theme"
+    "toggle_theme": "Toggle Theme",
+    "home": "Home",
+    "reserve": "Appointment Tracking",
+    "Specialties": "Specialties",
+    "themeD": "Dark",
+    "themeL": "Light",
+    "login":"Login/SignUp"
   }
 }

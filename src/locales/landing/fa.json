@@ -2,6 +2,12 @@
   "translation": {
     "welcome": "به پنل بیمارستان خوش آمدید",
     "description": "مدیریت نوبت‌دهی و پرونده‌های پزشکی",
-    "toggle_theme": "تغییر تم"
+    "toggle_theme": "تغییر تم",
+    "home": "خانه",
+    "reserve": "پیگیری نوبت",
+    "Specialties": "تخصص‌ها",
+    "themeD": "تاریک",
+    "themeL": "روشن",
+    "login":"ورود/ثبت نام"
   }
 }

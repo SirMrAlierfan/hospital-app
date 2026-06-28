@@ -29,9 +29,9 @@ export function LanguageSwitcher() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
             </Button>
-            <div className={"absolute right-0 mt-2 w-32 rounded-xl bg-[#3e3e3e] border border-white/10 shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50"}>
+            <div className={"absolute right-0 mt-2 w-32 rounded-xl bg-teal-700 border border-white/10 shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50"}>
                 <Button
-                    className="rounded-t-xl w-full flex items-center gap-3 px-4 py-2 text-sm text-slate-200 hover:bg-teal-700 hover:text-white rounded-none justify-start"
+                    className=" w-full flex items-center gap-3 px-4 py-2 text-sm   text-slate-200 hover:bg-teal-700 hover:text-white rounded-none justify-start"
                     onClick={() => { changeLanguage("fa") }}
                 >
                     <img src="https://flagcdn.com/w40/ir.png" className="w-5 h-3.5 rounded-sm" alt="FA" />
@@ -39,7 +39,7 @@ export function LanguageSwitcher() {
                 </Button>
 
                 <Button
-                    className="rounded-b-xl w-full flex items-center gap-3 px-4 py-2 text-sm text-slate-200 hover:bg-teal-700 hover:text-white rounded-none justify-start"
+                    className=" w-full flex items-center gap-3 px-4 py-2 text-sm   text-slate-200 hover:bg-teal-700 hover:text-white rounded-none justify-start"
                     onClick={() => { changeLanguage("en") }}
                 >
                     <img src="https://flagcdn.com/w40/us.png" className="w-5 h-3.5 rounded-sm" alt="EN" />
@@ -48,4 +48,4 @@ export function LanguageSwitcher() {
             </div>
         </div>
     );
-}
+}   

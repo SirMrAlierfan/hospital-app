@@ -21,13 +21,14 @@ const Button = ({
     active:scale-95
     dark:bg-slate-400 dark:text-blue-50 
     dark:shadow-none
-    dark:hover:bg-slate-300 dark:hover:text-slate-500
+    dark:hover:bg-slate-300 dark:hover:text-slate-500 
+    
   `;
 
   return (
     <button 
       
-      className={`${baseStyles} ${className}`}
+      className={`${baseStyles} ${className} `}
       {...props}
     >
       {children}
