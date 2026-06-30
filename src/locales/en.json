@@ -1,0 +1,63 @@
+{
+  "translation": {
+    "welcome": "Welcome to the Hospital Panel",
+    "description": "Management of appointments and medical records",
+    "toggle_theme": "Toggle Theme",
+    "home": "Home",
+    "reserve": "Appointment Tracking",
+    "Specialties": "Specialties",
+    "themeD": "Dark",
+    "themeL": "Light",
+    "login": "Login/SignUp",
+    "auth": {
+      "register": {
+        "title": "Create Account",
+        "roles": {
+          "patient": "Patient",
+          "doctor": "Doctor"
+        },
+        "errors": {
+          "fullName": "Full Name must be at least 3 characters",
+          "email": "Invalid email format",
+          "emailRequired": "Email is required",
+          "password": "Password must be at least 6 characters",
+          "phone": "Invalid phone number",
+          "nationalId": "National ID must be exactly 10 digits",
+          "licenseNumber": "Invalid medical license number",
+          "specialty": "Specialty is required"
+        },
+        "form": {
+          "fullName": {
+            "label": "Full Name",
+            "placeholder": "Ali Erfani"
+          },
+          "email": {
+            "label": "Email",
+            "placeholder": "name@example.com"
+          },
+          "phone": {
+            "label": "Phone Number",
+            "placeholder": "09123456789"
+          },
+          "nationalId": {
+            "label": "National ID",
+            "placeholder": "0012345678"
+          },
+          "licenseNumber": {
+            "label": "Medical License No.",
+            "placeholder": "12345"
+          },
+          "specialty": {
+            "label": "Specialty",
+            "placeholder": "e.g. Ophthalmologist"
+          },
+          "password": {
+            "label": "Password",
+            "placeholder": "••••••••"
+          },
+          "submit": "Register"
+        }
+      }
+    }
+  }
+}

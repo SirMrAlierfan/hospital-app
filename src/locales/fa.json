@@ -1,0 +1,63 @@
+{
+  "translation": {
+    "welcome": "به پنل بیمارستان خوش آمدید",
+    "description": "مدیریت نوبت‌دهی و پرونده‌های پزشکی",
+    "toggle_theme": "تغییر تم",
+    "home": "خانه",
+    "reserve": "پیگیری نوبت",
+    "Specialties": "تخصص‌ها",
+    "themeD": "تاریک",
+    "themeL": "روشن",
+    "login": "ورود/ثبت نام",
+    "auth": {
+      "register": {
+        "title": "ایجاد حساب کاربری",
+        "roles": {
+          "patient": "بیمار",
+          "doctor": "پزشک"
+        },
+        "errors": {
+          "fullName": "نام و نام خانوادگی باید حداقل ۳ کاراکتر باشد",
+          "email": "فرمت ایمیل نامعتبر است",
+          "emailRequired": "ایمیل اجباری است",
+          "password": "کلمه عبور باید حداقل ۶ کاراکتر باشد",
+          "phone": "شماره موبایل وارد شده معتبر نیست",
+          "nationalId": "کد ملی باید دقیقاً ۱۰ رقم باشد",
+          "licenseNumber": "شماره نظام پزشکی معتبر نیست",
+          "specialty": "وارد کردن تخصص اجباری است"
+        },
+        "form": {
+          "fullName": {
+            "label": "نام و نام خانوادگی",
+            "placeholder": "علی عرفانی"
+          },
+          "email": {
+            "label": "ایمیل",
+            "placeholder": "example@mail.com"
+          },
+          "phone": {
+            "label": "شماره موبایل",
+            "placeholder": "09123456789"
+          },
+          "nationalId": {
+            "label": "کد ملی",
+            "placeholder": "0012345678"
+          },
+          "licenseNumber": {
+            "label": "شماره نظام پزشکی",
+            "placeholder": "12345"
+          },
+          "specialty": {
+            "label": "تخصص",
+            "placeholder": "مثلاً: چشم پزشک"
+          },
+          "password": {
+            "label": "کلمه عبور",
+            "placeholder": "••••••••"
+          },
+          "submit": "ثبت نام"
+        }
+      }
+    }
+  }
+}

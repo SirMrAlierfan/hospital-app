@@ -45,7 +45,7 @@ const Header = () => {
                     onClick={() => console.log("Auth Clicked")}
                     className="px-5 py-2 text-sm rounded-full shadow-teal-500/20 hover:shadow-teal-500/40 bg-teal-600 hover:bg-teal-500 dark:bg-teal-500 dark:hover:bg-teal-400 dark:text-slate-900 dark:font-bold"
                 >
-                    {t("login")}
+                    <a href="/login">{t("login")}</a>
                 </Button>
 
                 <Button onClick={toggleTheme} className="p-2 rounded-lg">
