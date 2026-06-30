@@ -2,22 +2,26 @@ import { useState } from "react";
 import type { JSX, FormEvent } from "react";
 import { useTranslation } from "react-i18next";
 import { ZodError } from "zod";
-
 import Input from "../baseComponents/input";
 import Button from "../baseComponents/button";
 import { loginSchema, type LoginFields } from "./utils/authValidation";
+import axios from "axios";
+import { authApiHandler } from "./utils/AuthApiHandler";
 
 const Login = (): JSX.Element => {
     const { t } = useTranslation();
     const [formData, setFormData] = useState<LoginFields>({ email: "", password: "" });
     const [errors, setErrors] = useState<Partial<LoginFields>>({});
 
-    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
             loginSchema.parse(formData);
+            const response = await authApiHandler({ method: "post", path: "/login", data: formData })
+            console.log(response.data);
+
             setErrors({});
-            console.log("داده‌های معتبر لاگین جهت ارسال به بک‌اند:", formData);
+
         } catch (err) {
             if (err instanceof ZodError) {
                 const formattedErrors: Partial<LoginFields> = {};
@@ -27,6 +31,11 @@ const Login = (): JSX.Element => {
                     }
                 });
                 setErrors(formattedErrors);
+            } else if (axios.isAxiosError(err)) {
+                const serverMessage = err.response?.data?.message || "An error occurred";
+                console.error("Server Error:", serverMessage);
+            } else {
+                console.error("Unexpected Error:", err);
             }
         }
     };
