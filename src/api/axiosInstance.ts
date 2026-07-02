@@ -1,7 +1,10 @@
+import { useAuthStore } from '@/store/useAuthStore';
 import axios, { type AxiosInstance } from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const api: AxiosInstance = axios.create({
-    baseURL: 'http://localhost:3500',
+    baseURL: 'http://localhost:3500/api',
+    withCredentials: true,
     timeout: 10000,
     headers: {
         'Content-Type': 'application/json',
@@ -10,7 +13,7 @@ const api: AxiosInstance = axios.create({
 });
 
 api.interceptors.request.use(
-    //n handle configs
+
 );
 
 
@@ -18,8 +21,12 @@ api.interceptors.response.use(
     (response) => {
         return response;
     },
-    (error) => {
-        //n handle errs
+    async (error) => {
+        if (error.response?.status === 401) {
+            await api.post('/auth/logout');
+            useAuthStore.getState().logout();
+            window.location.href = '/login';
+        }
         return Promise.reject(error);
     }
 );

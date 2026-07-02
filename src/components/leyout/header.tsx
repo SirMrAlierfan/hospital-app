@@ -12,7 +12,7 @@ const Header = () => {
 
 
     const navItems = [
-        { path: "/home", label: t("home") },
+        { path: "/", label: t("home") },
         { path: "/reserve", label: t("reserve") },
         { path: "/specialties", label: t("Specialties") },
     ];
@@ -112,6 +112,7 @@ const Header = () => {
                     >
                         {t("login")}
                     </Button>
+                    
                 </div>
             </div>
         </header>

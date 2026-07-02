@@ -5,9 +5,9 @@ import { doctorRegisterSchema, patientRegisterSchema } from "./utils/authValidat
 import Input from "../baseComponents/input";
 import Button from "../baseComponents/button";
 import { useTranslation } from "react-i18next";
-import api from "@/api/axiosInstance";
-import { authApiHandler } from "./utils/AuthApiHandler";
-
+import { authApiHandler } from "./utils/authApiHandler";
+import { useNavigate } from "react-router-dom";
+import i18n from "@/i18n";
 
 type UserRole = "patient" | "doctor";
 
@@ -18,20 +18,22 @@ const Register = (): JSX.Element => {
     const [nationalId, setNationalId] = useState("");
     const [licenseNumber, setLicenseNumber] = useState("");
     const [specialty, setSpecialty] = useState("");
-
+    const [consultationFee, setConsultationFee] = useState(0);
     const [errors, setErrors] = useState<Record<string, string>>({});
-
+    const nav = useNavigate()
     const handleRegister = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const payload = { ...commonData, ...(role === "patient" ? { nationalId } : { licenseNumber, specialty }) };
+        const payload = { ...commonData, ...(role === "patient" ? { nationalId } : { licenseNumber, specialty, consultationFee }) };
         const currentSchema = role === "patient" ? patientRegisterSchema : doctorRegisterSchema;
+
 
 
         try {
             currentSchema.parse(payload);
+
             setErrors({});
-            const response = await authApiHandler({ method: "post", path: "/register/patient", data: payload })
-            console.log(response);
+            await authApiHandler({ method: "post", path: "/register/" + role, data: payload })
+            nav({ pathname: "/login" }, { replace: true })
 
         } catch (err) {
             console.log(err + "err");
@@ -134,6 +136,14 @@ const Register = (): JSX.Element => {
                                 onChange={(e) => setSpecialty(e.target.value)}
                                 placeholder={t("auth.register.form.specialty.placeholder")}
                             />
+                            <Input
+                                label={t("auth.register.form.consultationFee.label")}
+                                type="number"
+                                value={consultationFee}
+                                error={errors.consultationFee}
+                                onChange={(e) => setConsultationFee(Number(e.target.value))}
+                                placeholder={t("auth.register.form.consultationFee.placeholder")}
+                            />
                         </div>
                     )}
 
@@ -149,6 +159,13 @@ const Register = (): JSX.Element => {
                     <Button type="submit" className="w-full mt-2">
                         {t("auth.register.form.submit")}
                     </Button>
+                    <span className="m-auto text-sm text-gray-500 font-medium ">
+                        {i18n.language === "fa" ? "اکانت دارید ؟ " : "alredy have an account?"}
+                        <a href="/login" className="text-blue-600 hover:text-blue-700 transition-colors duration-200 font-semibold ">
+                            {i18n.language === "fa" ? "ورود" : "login"}
+                        </a>
+                    </span>
+
                 </form>
             </div>
         </div>

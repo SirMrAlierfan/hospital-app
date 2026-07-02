@@ -51,6 +51,10 @@
             "label": "تخصص",
             "placeholder": "مثلاً: چشم پزشک"
           },
+          "consultationFee": {
+            "label": "هزینه ویزیت",
+            "placeholder": "300000"
+          },
           "password": {
             "label": "کلمه عبور",
             "placeholder": "••••••••"

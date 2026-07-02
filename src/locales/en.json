@@ -51,6 +51,10 @@
             "label": "Specialty",
             "placeholder": "e.g. Ophthalmologist"
           },
+          "consultationFee": {
+            "label": "consultationFee",
+            "placeholder": "30$"
+          },
           "password": {
             "label": "Password",
             "placeholder": "••••••••"

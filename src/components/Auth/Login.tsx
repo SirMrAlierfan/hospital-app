@@ -6,20 +6,25 @@ import Input from "../baseComponents/input";
 import Button from "../baseComponents/button";
 import { loginSchema, type LoginFields } from "./utils/authValidation";
 import axios from "axios";
-import { authApiHandler } from "./utils/AuthApiHandler";
+import { useAuthStore } from "@/store/useAuthStore";
+import i18n from "@/i18n";
+import { authApiHandler } from "./utils/authApiHandler";
+import { useNavigate } from "react-router-dom";
+
 
 const Login = (): JSX.Element => {
     const { t } = useTranslation();
     const [formData, setFormData] = useState<LoginFields>({ email: "", password: "" });
     const [errors, setErrors] = useState<Partial<LoginFields>>({});
-
+    const loginStore = useAuthStore((state) => state.login);
+    const nav = useNavigate()
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
             loginSchema.parse(formData);
             const response = await authApiHandler({ method: "post", path: "/login", data: formData })
-            console.log(response.data);
-
+            loginStore(response.data)
+            nav({ pathname: "/profile" })
             setErrors({});
 
         } catch (err) {
@@ -45,7 +50,7 @@ const Login = (): JSX.Element => {
             <div className="w-full max-w-md p-8 bg-white dark:bg-[#313131] rounded-2xl shadow-xl border border-gray-100 dark:border-slate-800">
                 <div className="text-center mb-8">
                     <h2 className="text-2xl font-bold text-teal-700 dark:text-teal-400 mb-2">
-                        {t("auth.register.title")}
+                        {i18n.language === "fa" ? "ورود به حساب " : "login to account"}
                     </h2>
                 </div>
 
@@ -69,8 +74,19 @@ const Login = (): JSX.Element => {
                     />
 
                     <Button type="submit" className="w-full mt-2">
-                        {t("auth.register.form.submit")}
+                        {i18n.language === "fa" ? "ورود" : "login"}
                     </Button>
+                    
+                        <span className="m-auto text-sm text-gray-500 font-medium">
+                            
+                            {i18n.language === "fa" ? "اکانت ندارید؟ " : "doesnt have an account?"}
+                            <a href="/signUp" className="text-blue-600 hover:text-blue-700 transition-colors duration-200 font-semibold ml-1">
+                               {i18n.language === "fa" ? "ثبت نام " : "signUp"}
+                            </a>
+                        </span>
+                    
+
+
                 </form>
             </div>
         </div>
